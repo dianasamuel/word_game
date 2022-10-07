@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import DoneIcon from '@mui/icons-material/Done';
 
 function App() {
-  const current_word = "delicious";
+  const current_word = "atmosphere";
 
   const [newSubWord, setNewSubWord] = useState('');
   const [subwordList, setSubwordList] = useState([]);
@@ -32,22 +32,26 @@ function App() {
 
  
   const checkWordIsSubWord = (subword) => {
-    var newMap = new Map(characterHashMap);
+    var newMap = new Map(characterHashMap); 
     for (var i = 0; i < subword.length; i++) {
       var c = subword.charAt(i);
-      if (newMap.get(c) === undefined)
-        return false;
+      if (newMap.get(c) === undefined) {
+		return false;
+	  }
       else
       {
         if(newMap.get(c)==1)
         {
-          newMap.delete(c);
+			newMap.delete(c);
+			
         }
-        else
-          newMap.set(c, newMap.get(c) - 1);
-        return true;
-      }
-    }
+        else {
+			newMap.set(c, newMap.get(c) - 1);
+		}
+	  }
+	
+	}
+	return true;
   }
 
   const handleClick = () => {
@@ -83,9 +87,9 @@ function App() {
 
   // 
   return (
-    <div style={{ justifyContent: 'center', alignItems: 'center', margin: '100px', fontFamily: 'Calbri' }}>
+    <div style={{ justifyContent: 'center', alignItems: 'center', margin: '50px', fontFamily: 'Calbri' }}>
       <h3>Current Word</h3>
-      <h2 style={{ color: 'blue' }}>{current_word}</h2>
+      <h2 style={{ color: 'blue' }}>{current_word} - {subwordList.length}</h2>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {
           subwordList.length == 0 ?
@@ -93,9 +97,9 @@ function App() {
 
             subwordList.map((word) =>
               // <ListItem key={word} alignItems="flex-start" style={{ display: 'list-item' }}> {word} </ListItem>
-              <Card key={word} variant="outlined" style={{ width: '8rem' }}>
+              <Card key={word} variant="outlined" style={{ width: '3rem', height: '4rem' }}>
                 <CardContent>
-                  <Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
+                  <Typography sx={{ fontSize: 12 }} color="DarkOrange" gutterBottom>
                     {word}
                   </Typography>
                   <DoneIcon />
