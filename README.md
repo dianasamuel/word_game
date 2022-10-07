@@ -14,4 +14,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 ### Notes
 Edited UI to allow word game
 
-![Demo Image]("https://github.com/dianasamuel/word_game/blob/master/wordGame.JPG?raw=true") 
+![Demo Image](https://github.com/dianasamuel/word_game/blob/master/wordGame.JPG?raw=true) 
